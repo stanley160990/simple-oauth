@@ -1,0 +1,7 @@
+uvicorn
+fastapi
+python-multipart
+psycopg2-binary
+sqlalchemy
+PyYAML
+python-jose

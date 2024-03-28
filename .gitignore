@@ -1,0 +1,7 @@
+.venv/*
+__pycache__/*
+libs/__pycache__/*
+libs/models/*
+tmp/*
+etc/config.yml
+uploads/*

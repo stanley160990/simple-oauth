@@ -1,0 +1,35 @@
+version: '3'
+services:
+  api:
+    build:
+      context: .
+    depends_on:
+      - postgres
+    container_name: oauth-api
+    restart: always
+    ports:
+      - '8181:8080'
+    volumes:
+      - ./:/app
+    environment:
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=db_oauth
+      - POSTGRES_USER=oauth
+      - POSTGRES_PASSWORD=margonda100
+  postgres:
+    image: postgres:16
+    container_name: oauth-postgres
+    restart: always
+    ports:
+      - 5436:5432
+    volumes:
+      - db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=margonda100
+      - POSTGRES_USER=oauth
+      - POSTGRES_DB=db_oauth
+
+volumes:
+  db:
+    driver: local
